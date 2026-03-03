@@ -4,6 +4,7 @@
 #SBATCH --output=outputs/slurm_%j_03_baseline.out
 #SBATCH --error=outputs/slurm_%j_03_baseline.err
 #SBATCH --ntasks=1
+#SBATCH --cpus-per-task=0
 #SBATCH --nodes=1
 #SBATCH --mem=0
 #SBATCH --time=02:00:00

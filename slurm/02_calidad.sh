@@ -4,6 +4,7 @@
 #SBATCH --output=outputs/slurm_%j_02_calidad.out
 #SBATCH --error=outputs/slurm_%j_02_calidad.err
 #SBATCH --ntasks=1
+#SBATCH --cpus-per-task=0
 #SBATCH --nodes=1
 #SBATCH --mem=0
 #SBATCH --time=01:00:00
