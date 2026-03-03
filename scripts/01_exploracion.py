@@ -65,9 +65,9 @@ def main() -> None:
         "TamañoSurtido": "tamano_surtido",
     })
     cat_loc = cat_loc.rename({
-        "Loc": "tienda_id",
-        "Region": "region",
-        "Plaza": "plaza",
+        "LOC": "tienda_id",
+        "REGION": "region",
+        "PLAZA": "plaza",
     })
     inventario = inventario.rename({
         "Loc": "tienda_id",
