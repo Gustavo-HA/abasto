@@ -19,7 +19,7 @@ export PATH="/home/est_posgrado_gustavo.angeles/.local/uv/bin:$PATH"
 
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+cd "$SLURM_SUBMIT_DIR"
 
 echo "=== [02_calidad] Inicio: $(date) ==="
 echo "Nodo: $SLURMD_NODENAME"
