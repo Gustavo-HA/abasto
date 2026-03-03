@@ -4,7 +4,7 @@
 #SBATCH --output=outputs/slurm_%j_01_exploracion.out
 #SBATCH --error=outputs/slurm_%j_01_exploracion.err
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=0
+#SBATCH --cpus-per-task=24
 #SBATCH --nodes=1
 #SBATCH --mem=0
 #SBATCH --time=03:00:00
