@@ -51,6 +51,30 @@ def main() -> None:
     cat_loc = pl.read_excel(str(EXCEL_PATH), sheet_name="CatLoc")
     inventario = pl.read_excel(str(EXCEL_PATH), sheet_name="Inventario")
 
+    # Log columnas reales del Excel para detectar discrepancias de nombres
+    log.info("CatSku columnas:   %s", cat_sku.columns)
+    log.info("CatLoc columnas:   %s", cat_loc.columns)
+    log.info("Inventario columnas: %s", inventario.columns)
+
+    # Normalizar nombres de columnas del Excel a snake_case interno
+    cat_sku = cat_sku.rename({
+        "Sku": "articulo_id",
+        "Precio": "precio",
+        "Costo": "costo",
+        "TiempoVida": "tiempo_vida",
+        "TamañoSurtido": "tamano_surtido",
+    })
+    cat_loc = cat_loc.rename({
+        "Loc": "tienda_id",
+        "Region": "region",
+        "Plaza": "plaza",
+    })
+    inventario = inventario.rename({
+        "Loc": "tienda_id",
+        "Sku": "articulo_id",
+        "Inventario": "inventario_inicial",
+    })
+
     log.info(
         "Catálogo cargado — SKUs: %d, Tiendas: %d, Inventarios: %d",
         len(cat_sku),

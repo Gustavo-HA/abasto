@@ -198,8 +198,18 @@ def main() -> None:
     log.info("Filas: %d", len(df))
 
     log.info("Cargando catálogos...")
-    cat_sku = pl.read_excel(str(EXCEL_PATH), sheet_name="CatSku")
-    inv_inicial = pl.read_excel(str(EXCEL_PATH), sheet_name="Inventario")
+    cat_sku = pl.read_excel(str(EXCEL_PATH), sheet_name="CatSku").rename({
+        "Sku": "articulo_id",
+        "Precio": "precio",
+        "Costo": "costo",
+        "TiempoVida": "tiempo_vida",
+        "TamañoSurtido": "tamano_surtido",
+    })
+    inv_inicial = pl.read_excel(str(EXCEL_PATH), sheet_name="Inventario").rename({
+        "Loc": "tienda_id",
+        "Sku": "articulo_id",
+        "Inventario": "inventario_inicial",
+    })
 
     # ------------------------------------------------------------------
     # 2. Pronóstico base
